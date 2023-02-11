@@ -1,0 +1,17 @@
+.mt-60 {
+  margin-top: 60px;
+  /* 上方距 */
+}
+
+.header {
+  padding: 50px 0px;
+  background-image: url(/Users/shawnlai/Desktop/webPractice_2/images/Banner.jpg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.page-link {
+  color: black;
+}
