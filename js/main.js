@@ -154,11 +154,23 @@ function initNavbarScroll() {
 
   window.addEventListener('scroll', function() {
     if (window.pageYOffset > 100) {
-      navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-      navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+      // 滾動時：50% 透明度、四邊圓角、增強陰影
+      navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.15)';
+      navbar.style.background = 'rgba(255, 255, 255, 0.5)';
+      navbar.style.backdropFilter = 'blur(10px)';
+      navbar.style.borderRadius = '15px';
+      navbar.style.margin = '10px 20px';
+      navbar.style.width = 'calc(100% - 40px)';
+      navbar.style.left = '0';
+      navbar.style.right = '0';
     } else {
+      // 頂部時：完全不透明、無圓角
       navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
       navbar.style.background = '#ffffff';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderRadius = '0';
+      navbar.style.margin = '0';
+      navbar.style.width = '100%';
     }
   });
 }
