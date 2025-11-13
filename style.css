@@ -15,3 +15,23 @@
 .page-link {
   color: black;
 }
+
+/* 頂部導航欄樣式 */
+#topNav {
+  transition: all 0.3s ease;
+  background-color: #212529 !important;
+}
+
+/* 滾動後的樣式 */
+#topNav.scrolled {
+  border-radius: 15px;
+  background-color: rgba(33, 37, 41, 0.5) !important;
+  margin: 10px 20px;
+  width: calc(100% - 40px);
+  backdrop-filter: blur(10px);
+}
+
+/* 平滑滾動 */
+html {
+  scroll-behavior: smooth;
+}
