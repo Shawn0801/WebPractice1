@@ -1,238 +1,545 @@
-!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-TW">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>齊天大聖亂遊記-官方網站</title>
+  <title>我們結婚了 ❤ Wedding Invitation</title>
 
-  <!-- css文件載入 -->
-  <link rel="stylesheet" href="/Users/shawnlai/Desktop/webPractice_1/css/bootstrap.min.css">
+  <!-- CSS文件載入 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/Users/shawnlai/Desktop/webPractice_1/style.css">
-  <!-- css文件載入 -->
-  <!-- js文件載入 -->
-  <script src="/Users/shawnlai/Desktop/webPractice/js/bootstrap.bundle.min.js"></script>
-  <!-- js文件載入 -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- 頁首start -->
-  <header>
-    <img src="/Users/shawnlai/Desktop/webPractice_1/images/Banner.jpg" alt="banner" class="img-fluid">
+  <!-- 導航欄 -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand elegant-font" href="#home">
+        <i class="bi bi-heart-fill text-danger"></i> 我們結婚了
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="#couple">新人介紹</a></li>
+          <li class="nav-item"><a class="nav-link" href="#info">婚禮資訊</a></li>
+          <li class="nav-item"><a class="nav-link" href="#schedule">活動流程</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">相片集</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 頁首橫幅 -->
+  <header id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="display-1 elegant-font text-white mb-4" data-aos="fade-up">John & Mary</h1>
+      <p class="lead text-white mb-4" data-aos="fade-up" data-aos-delay="200">誠摯邀請您參加我們的婚禮</p>
+      <div class="wedding-date text-white mb-4" data-aos="fade-up" data-aos-delay="400">
+        <i class="bi bi-calendar-heart fs-3"></i>
+        <h3 class="mt-3">2025年12月25日</h3>
+      </div>
+      <div id="countdown" class="countdown" data-aos="fade-up" data-aos-delay="600">
+        <div class="countdown-item">
+          <span id="days" class="countdown-number">00</span>
+          <span class="countdown-label">天</span>
+        </div>
+        <div class="countdown-item">
+          <span id="hours" class="countdown-number">00</span>
+          <span class="countdown-label">時</span>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes" class="countdown-number">00</span>
+          <span class="countdown-label">分</span>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds" class="countdown-number">00</span>
+          <span class="countdown-label">秒</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <a href="#couple" class="text-white">
+        <i class="bi bi-chevron-down"></i>
+      </a>
+    </div>
   </header>
-  <!-- 頁首end -->
-  <!-- 遊戲介紹start -->
-  <section class="p-3 bg-dark mb-4">
+
+  <!-- 新人介紹 -->
+  <section id="couple" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font">新人介紹</h2>
+        <div class="title-divider"></div>
+        <p class="text-muted">Happy Couple</p>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-5" data-aos="fade-right">
+          <div class="couple-image">
+            <img src="images/Scene1.jpg" alt="新郎" class="img-fluid rounded shadow">
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-1" data-aos="fade-left">
+          <div class="couple-info">
+            <h3 class="elegant-font mb-3">John Chen <i class="bi bi-suit-heart-fill text-danger"></i></h3>
+            <p class="text-muted">新郎</p>
+            <p class="lead">「從相遇到相守，每一刻都是最美的回憶。感謝上天讓我遇見了生命中最重要的人。」</p>
+            <div class="social-links mt-3">
+              <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center flex-md-row-reverse">
+        <div class="col-md-5" data-aos="fade-left">
+          <div class="couple-image">
+            <img src="images/Scene2.jpg" alt="新娘" class="img-fluid rounded shadow">
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-1" data-aos="fade-right">
+          <div class="couple-info">
+            <h3 class="elegant-font mb-3"><i class="bi bi-suit-heart-fill text-danger"></i> Mary Wang</h3>
+            <p class="text-muted">新娘</p>
+            <p class="lead">「愛情不是尋找一個完美的人，而是學會用完美的眼光，欣賞一個不完美的人。謝謝你成為我的依靠。」</p>
+            <div class="social-links mt-3">
+              <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 愛情故事 -->
+      <div class="row mt-5">
+        <div class="col-md-12" data-aos="fade-up">
+          <div class="love-story text-center p-5 bg-white rounded shadow-sm">
+            <h4 class="elegant-font mb-4">我們的故事</h4>
+            <p class="text-muted mb-0">
+              從大學相識到攜手步入婚姻，我們一起走過了五年的美好時光。<br>
+              這段旅程中有歡笑、有淚水，但更多的是彼此的支持與陪伴。<br>
+              如今，我們準備開啟人生新的篇章，誠摯邀請您見證我們的幸福時刻。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 婚禮資訊 -->
+  <section id="info" class="py-5 wedding-info-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font text-white">婚禮資訊</h2>
+        <div class="title-divider bg-white"></div>
+        <p class="text-white-50">Wedding Information</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 婚宴資訊 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-card text-center p-5 bg-white rounded shadow h-100">
+            <div class="info-icon mb-4">
+              <i class="bi bi-calendar-event fs-1 text-danger"></i>
+            </div>
+            <h4 class="mb-3">婚宴時間</h4>
+            <p class="text-muted mb-2"><strong>2025年12月25日（星期四）</strong></p>
+            <p class="text-muted">中午 12:00 入席</p>
+            <hr class="my-4">
+            <div class="info-icon mb-3">
+              <i class="bi bi-geo-alt-fill fs-1 text-danger"></i>
+            </div>
+            <h4 class="mb-3">婚宴地點</h4>
+            <p class="text-muted mb-2"><strong>圓山大飯店 大宴會廳</strong></p>
+            <p class="text-muted mb-2">台北市中山區中山北路四段1號</p>
+            <a href="#" class="btn btn-outline-danger mt-3">
+              <i class="bi bi-map"></i> 查看地圖
+            </a>
+          </div>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="info-card text-center p-5 bg-white rounded shadow h-100">
+            <div class="info-icon mb-4">
+              <i class="bi bi-info-circle fs-1 text-danger"></i>
+            </div>
+            <h4 class="mb-3">注意事項</h4>
+            <div class="text-start">
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  請著正式服裝出席
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  現場提供停車服務
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  敬請於11:30前入場
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  請在下方RSVP表單確認出席
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  如有任何問題請與我們聯繫
+                </li>
+              </ul>
+            </div>
+            <div class="mt-4">
+              <p class="mb-2"><i class="bi bi-telephone-fill me-2"></i> 0912-345-678</p>
+              <p><i class="bi bi-envelope-fill me-2"></i> wedding@example.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動流程 -->
+  <section id="schedule" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font">活動流程</h2>
+        <div class="title-divider"></div>
+        <p class="text-muted">Wedding Schedule</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">11:30</div>
+                <h5>賓客入場</h5>
+                <p class="text-muted">歡迎賓客蒞臨，請於簽到處簽名留念</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">12:00</div>
+                <h5>新人進場</h5>
+                <p class="text-muted">新郎新娘攜手走向幸福的未來</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">12:15</div>
+                <h5>證婚儀式</h5>
+                <p class="text-muted">主婚人致詞、交換戒指、證婚儀式</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">12:30</div>
+                <h5>開席敬酒</h5>
+                <p class="text-muted">新人向賓客敬酒致謝，享用美味佳餚</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">13:30</div>
+                <h5>遊戲互動</h5>
+                <p class="text-muted">有趣的互動遊戲，歡樂氣氛滿點</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 6 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">14:00</div>
+                <h5>捧花儀式</h5>
+                <p class="text-muted">新娘拋捧花，將幸福傳遞給下一位</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 7 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-time">14:30</div>
+                <h5>送客</h5>
+                <p class="text-muted">感謝您的蒞臨，祝您歸途平安</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相片集 -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font">相片集</h2>
+        <div class="title-divider"></div>
+        <p class="text-muted">Photo Gallery</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-item">
+            <img src="images/Scene1.jpg" alt="婚紗照1" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-item">
+            <img src="images/Scene2.jpg" alt="婚紗照2" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-item">
+            <img src="images/Scene3.jpg" alt="婚紗照3" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-item">
+            <img src="images/Scene4.jpg" alt="婚紗照4" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-item">
+            <img src="images/Banner.jpg" alt="婚紗照5" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-item">
+            <img src="images/Scene1.jpg" alt="婚紗照6" class="img-fluid rounded shadow">
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in fs-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP表單 -->
+  <section id="rsvp" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font">參加確認</h2>
+        <div class="title-divider"></div>
+        <p class="text-muted">請於2025年12月10日前回覆</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="rsvp-form bg-white p-5 rounded shadow" data-aos="fade-up">
+            <form id="rsvpForm">
+              <!-- 姓名 -->
+              <div class="mb-4">
+                <label for="guestName" class="form-label">姓名 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="guestName" placeholder="請輸入您的姓名" required>
+              </div>
+
+              <!-- 電子郵件 -->
+              <div class="mb-4">
+                <label for="guestEmail" class="form-label">電子信箱 <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="guestEmail" placeholder="請輸入您的Email" required>
+              </div>
+
+              <!-- 電話 -->
+              <div class="mb-4">
+                <label for="guestPhone" class="form-label">聯絡電話</label>
+                <input type="tel" class="form-control" id="guestPhone" placeholder="請輸入您的電話">
+              </div>
+
+              <!-- 出席意願 -->
+              <div class="mb-4">
+                <label class="form-label">是否出席 <span class="text-danger">*</span></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="attendance" id="attendYes" value="yes" checked>
+                  <label class="form-check-label" for="attendYes">
+                    <i class="bi bi-check-circle-fill text-success"></i> 我會出席，期待與你們分享喜悅
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="attendance" id="attendNo" value="no">
+                  <label class="form-check-label" for="attendNo">
+                    <i class="bi bi-x-circle-fill text-danger"></i> 很遺憾無法出席
+                  </label>
+                </div>
+              </div>
+
+              <!-- 人數 -->
+              <div class="mb-4" id="guestCountSection">
+                <label for="guestCount" class="form-label">出席人數</label>
+                <select class="form-select" id="guestCount">
+                  <option value="1">1 位</option>
+                  <option value="2">2 位</option>
+                  <option value="3">3 位</option>
+                  <option value="4">4 位</option>
+                  <option value="5">5 位以上</option>
+                </select>
+              </div>
+
+              <!-- 飲食需求 -->
+              <div class="mb-4" id="dietarySection">
+                <label for="dietary" class="form-label">飲食需求</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vegetarian">
+                  <label class="form-check-label" for="vegetarian">素食</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="childSeat">
+                  <label class="form-check-label" for="childSeat">需要兒童座椅</label>
+                </div>
+              </div>
+
+              <!-- 祝福的話 -->
+              <div class="mb-4">
+                <label for="message" class="form-label">給新人的祝福</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="請寫下您對新人的祝福..."></textarea>
+              </div>
+
+              <!-- 提交按鈕 -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger btn-lg">
+                  <i class="bi bi-send-fill"></i> 確認送出
+                </button>
+                <button type="reset" class="btn btn-outline-secondary">
+                  <i class="bi bi-arrow-counterclockwise"></i> 重新填寫
+                </button>
+              </div>
+            </form>
+
+            <!-- 成功訊息 -->
+            <div id="successMessage" class="alert alert-success mt-4 d-none">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              感謝您的回覆！我們已收到您的確認。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 地圖 -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title elegant-font">交通資訊</h2>
+        <div class="title-divider"></div>
+        <p class="text-muted">How to Get Here</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-4" data-aos="fade-right">
+          <div class="transport-info p-4 bg-white rounded shadow h-100">
+            <h5 class="mb-3"><i class="bi bi-car-front-fill text-danger me-2"></i>開車前往</h5>
+            <p class="text-muted mb-3">國道一號圓山交流道下，沿中山北路三段直行約5分鐘即可抵達</p>
+
+            <h5 class="mb-3 mt-4"><i class="bi bi-train-front-fill text-danger me-2"></i>搭乘捷運</h5>
+            <p class="text-muted mb-3">捷運淡水線至圓山站，1號出口步行約8分鐘</p>
+
+            <h5 class="mb-3 mt-4"><i class="bi bi-bus-front-fill text-danger me-2"></i>搭乘公車</h5>
+            <p class="text-muted mb-0">203、218、247、267、277、279、287、310、612、902、紅33</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4" data-aos="fade-left">
+          <div class="map-container rounded shadow">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2726744392584!2d121.51850731500658!3d25.071097483960044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96a13fb577f%3A0xd96c4623c9d87bc2!2z5ZyT5bGx5aSn6aOv5bqX!5e0!3m2!1szh-TW!2stw!4v1620000000000!5m2!1szh-TW!2stw"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁腳 -->
+  <footer class="footer bg-dark text-white py-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-          <h2 class="text-warning fw-bolder">遊戲世界觀</h2>
-          <p class="text-white">
-            據古書記載，齊天大聖在大鬧天宮之前，有另一則曲折離奇的故事。當時因為齊天大聖誤將守護世界的寶石打落凡間，因此玉皇大帝指派菩提祖師協助齊天大聖下凡尋找寶石。在不同時空的尋找過程中，<span
-              class="ps-2 pe-2 fw-bolder bg-danger">齊天大聖也從各種對抗中習得七十二變。</span>
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">
+            <i class="bi bi-heart-fill text-danger"></i>
+            John & Mary Wedding 2025
           </p>
         </div>
-        <div class="col-md-4">
-          <h2 class="text-warning fw-bolder">Download</h2>
-          <div class="d-grid gap-2 mt-4">
-            <button class="btn btn-warning btn-lg fst-italic fe-bolder" type="button">MAC Download</button>
-            <button class="btn btn-warning btn-lg fst-italic fe-bolder" type="button">WINDOW Download</button>
-
-          </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p class="mb-0">
+            聯絡電話: 0912-345-678 |
+            Email: wedding@example.com
+          </p>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center">
+          <p class="mb-0 text-muted small">
+            © 2025 All Rights Reserved. Made with <i class="bi bi-heart-fill text-danger"></i>
+          </p>
         </div>
       </div>
     </div>
-
-  </section>
-  <!-- 遊戲介紹end -->
-  <!-- 關卡介紹start -->
-  <Section>
-    <div class="container">
-      <h2 class="text-center mb-4 fw-bold">場景介紹</h2>
-      <div class="row">
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="border border-secondary rounded p-1">
-            <img src="/Users/shawnlai/Desktop/webPractice_1/images/Scene1.jpg" alt="第一關：石器時代" class="img-fluid w-100">
-            <div class="text-center mt-3">
-              <p class="text-center">第一關：石器時代</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="border border-secondary rounded p-1">
-            <img src="/Users/shawnlai/Desktop/webPractice_1/images/Scene2.jpg" alt="第二關：海盜船" class="img-fluid w-100">
-            <div class="text-center mt-3">
-              <p class="text-center">第二關：海盜船</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="border border-secondary rounded p-1">
-            <img src="/Users/shawnlai/Desktop/webPractice_1/images/Scene3.jpg" alt="第三關：金字塔" class="img-fluid w-100">
-            <div class="text-center mt-3">
-              <p class="text-center">第三關：金字塔</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="border border-secondary rounded p-1">
-            <img src="/Users/shawnlai/Desktop/webPractice_1/images/Scene4.jpg" alt="第四關：羅馬競技場" class="img-fluid w-100">
-            <div class="text-center mt-3">
-              <p class="text-center">第四關：羅馬競技場</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </Section>
-  <!-- 關卡介紹end -->
-  <!-- 表格start -->
-  <section class="bg-black box-30">
-    <div class="container">
-      <h2 class="text-center text-warning mb-4 fw-bold">魔王招式</h2>
-      <table class="table table hover text-center">
-        <thead>
-          <tr class="bg-danger text-white fs-5">
-            <th scope="col">關卡名稱</th>
-            <th scope="col">魔王名稱</th>
-            <th scope="col">攻擊絕招</th>
-            <th scope="col">習得招式</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table-info">
-            <td>石器時代</td>
-            <td>石器霸主</td>
-            <td>迴旋鏢</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-warning">
-            <td rowspan="2">戽斗唬喀</td>
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-warning">
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-danger">
-            <td rowspan="2">戽斗唬喀</td>
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-danger">
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-success">
-            <td rowspan="2">戽斗唬喀</td>
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-          <tr class="table-success">
-            <td>石戽斗唬喀</td>
-            <td>戽斗唬喀</td>
-            <td>金箍棒迴旋</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <!-- 表格end -->
-  <!-- 表單start -->
-  <section class="box-30">
-    <div class="container">
-      <!-- 改善建議start -->
-      <div class="row">
-        <div class="col-md-8">
-          <h2 class="mb-4 fw-bold">改善與建議</h2>
-          <form action="">
-            <!-- 姓名欄位 -->
-            <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">姓名</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control is-valid" placeholder="請輸入您的姓名" required>
-              </div>
-            </div>
-            <!-- 姓名欄位 -->
-            <!-- 信箱欄位 -->
-            <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">電子信箱</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control is-invalid" placeholder="請輸入您的Email" disabled>
-              </div>
-            </div>
-            <!-- 信箱欄位end -->
-            <!-- 喜好程度 -->
-            <div class="row mb-3">
-              <legend class="col-sm-2 col-form-label">喜好程度</legend>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="like" value="option1" checked>
-                  <label for="gridRadio1" class="form-check-label">非常喜歡</label>
-                </div>
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="like" value="option2">
-                  <label for="gridRadio1" class="form-check-label">一般</label>
-                </div>
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="like" value="option3">
-                  <label for="gridRadio1" class="form-check-label">不喜歡</label>
-                </div>
-              </div>
-            </div>
-            <!-- 喜好程度end -->
-            <!-- 建議start -->
-            <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">改善與建議</label>
-              <div class="col-sm-10">
-                <textarea rows="3" class="form-control" placeholder="請填寫您對於此款遊戲的建議與回饋"></textarea>
-              </div>
-            </div>
-            <!-- 建議end -->
-            <!-- 送出按鈕start -->
-            <div class="row mb-3">
-              <div class="col-sm-10 offset-sm-2 btn-group">
-                <button type="button" class="btn btn-danger">清除</button>
-                <button type="button" class="btn btn-warning disabled">送出</button>
-              </div>
-            </div>
-            <!-- 送出按鈕end -->
-          </form>
-        </div>
-        <!-- 改善建議end-->
-        <div class="col-md-4 mt-60">
-          <address>
-            公司：123learngo,INC <br />
-            地址：台北市XXXXXXXXXX <br />
-            <abbr title="聯絡電話" class="fw-bold">Tel</abbr>:(03)12345678<br />
-            <abbr title="聯絡信箱" class="fw-bold">Email</abbr>:(03)12345678<br />
-          </address>
-        </div>
-      </div>
-    </div>
-    <!-- 聯絡資訊 -->
-
-    <!-- 聯絡資訊 -->
-  </section>
-  <!-- 表單end -->
-  <!-- 頁腳 -->
-  <footer class="bg-dark">
-    <p class="text-center text-white mb-0 pt-3 pb-3">(c)20220925 by Shawn</p>
   </footer>
-  <!-- 頁腳 -->
+
+  <!-- 返回頂部按鈕 -->
+  <button id="backToTop" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- JS文件載入 -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
