@@ -392,71 +392,6 @@ html {
   transform: translateX(-50%);
 }
 
-/* 左側鬱金香裝飾 - 多朵花束效果 */
-.timeline::after {
-  content: '🌷\A🌷\A🌷';
-  white-space: pre;
-  position: absolute;
-  left: 20px;
-  top: 15%;
-  line-height: 5.5rem;
-  font-size: 5rem;
-  filter: blur(0.3px);
-  animation: tulipGrowLeft 2.5s ease-out forwards;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 容器需要添加右側鬱金香 */
-#schedule .container {
-  position: relative;
-  overflow: visible;
-}
-
-#schedule .container::before {
-  content: '🌷\A🌷\A🌷';
-  white-space: pre;
-  position: absolute;
-  right: 20px;
-  top: 15%;
-  line-height: 5.5rem;
-  font-size: 5rem;
-  filter: blur(0.3px);
-  animation: tulipGrowRight 2.5s ease-out forwards;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* 鬱金香生長動畫 - 從左側畫面外往內生長 */
-@keyframes tulipGrowLeft {
-  0% {
-    transform: translateX(-150px) rotate(-30deg) scale(0.5);
-    opacity: 0;
-  }
-  60% {
-    opacity: 0.25;
-  }
-  100% {
-    transform: translateX(0) rotate(-25deg) scale(1);
-    opacity: 0.2;
-  }
-}
-
-/* 鬱金香生長動畫 - 從右側畫面外往內生長 */
-@keyframes tulipGrowRight {
-  0% {
-    transform: translateX(150px) rotate(30deg) scaleX(-1) scale(0.5);
-    opacity: 0;
-  }
-  60% {
-    opacity: 0.25;
-  }
-  100% {
-    transform: translateX(0) rotate(25deg) scaleX(-1) scale(1);
-    opacity: 0.2;
-  }
-}
-
 .timeline-item {
   position: relative;
   margin-bottom: 3rem;
@@ -686,12 +621,6 @@ html {
 
   .timeline::before {
     left: 20px;
-  }
-
-  /* 平板版隱藏鬱金香裝飾 */
-  .timeline::after,
-  #schedule .container::before {
-    display: none;
   }
 
   .timeline-item,
