@@ -4,12 +4,19 @@
 
 /* 全域樣式 */
 :root {
-  --primary-color: #dc3545;
-  --secondary-color: #f8d7da;
+  --primary-color: #d4a5a5;
+  --primary-dark: #a0616a;
+  --primary-darker: #8b4f56;
+  --secondary-color: #e8b4b8;
+  --accent-gold: #d4a574;
+  --accent-champagne: #c9a882;
+  --bg-cream: #f8f6f4;
+  --bg-champagne: #f5e6d3;
   --text-dark: #2c3e50;
+  --text-medium: #5a6c7d;
   --text-light: #6c757d;
-  --bg-light: #f8f9fa;
-  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --bg-light: #f8f6f4;
+  --shadow: 0 5px 15px rgba(160, 97, 106, 0.15);
   --transition: all 0.3s ease;
 }
 
@@ -21,9 +28,10 @@
 
 body {
   font-family: 'Noto Serif TC', serif;
-  color: var(--text-dark);
+  color: var(--text-medium);
   line-height: 1.7;
   overflow-x: hidden;
+  background-color: var(--bg-cream);
 }
 
 html {
@@ -114,7 +122,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(108, 117, 125, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(212, 165, 165, 0.3) 0%, rgba(232, 180, 184, 0.25) 100%);
   z-index: 1;
 }
 
@@ -146,11 +154,11 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(212, 165, 165, 0.2);
   backdrop-filter: blur(10px);
   padding: 1.5rem 2rem;
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(232, 180, 184, 0.3);
 }
 
 .countdown-number {
@@ -227,7 +235,7 @@ html {
 .title-divider {
   width: 100px;
   height: 3px;
-  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+  background: linear-gradient(to right, transparent, var(--accent-gold), var(--primary-color), var(--accent-gold), transparent);
   margin: 1rem auto;
 }
 
@@ -271,16 +279,21 @@ html {
 }
 
 .love-story {
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid var(--accent-gold);
   font-style: italic;
+  background: linear-gradient(to right, rgba(212, 165, 165, 0.05), transparent);
 }
 
 /* ========================================
    婚禮資訊
    ======================================== */
 .wedding-info-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #e8b4b8 0%, #d4a5a5 100%);
   position: relative;
+}
+
+.wedding-info-section .title-divider {
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
 }
 
 .info-card {
@@ -325,7 +338,7 @@ html {
   position: absolute;
   font-size: 2.5rem;
   opacity: 0;
-  color: rgba(220, 53, 69, 0.15);
+  color: rgba(212, 165, 165, 0.2);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   pointer-events: none;
   z-index: 0;
@@ -405,7 +418,7 @@ html {
 
 .timeline-time {
   display: inline-block;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -442,7 +455,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(220, 53, 69, 0.8);
+  background: linear-gradient(135deg, rgba(212, 165, 165, 0.9) 0%, rgba(232, 180, 184, 0.9) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -487,12 +500,7 @@ html {
 .form-control:focus,
 .form-select:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-
-.form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(212, 165, 165, 0.25);
 }
 
 /* ========================================
@@ -519,7 +527,7 @@ html {
    頁腳
    ======================================== */
 .footer {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
 }
 
 /* ========================================
@@ -531,7 +539,7 @@ html {
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
   border-radius: 50%;
@@ -546,9 +554,9 @@ html {
 }
 
 .back-to-top:hover {
-  background: #c82333;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(160, 97, 106, 0.3);
 }
 
 .back-to-top.show {
@@ -731,4 +739,44 @@ html {
 
 .box-30 {
   padding: 30px 0;
+}
+
+/* Bootstrap 顏色覆蓋 */
+.text-danger,
+.bi-heart-fill.text-danger {
+  color: var(--primary-color) !important;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  border-color: var(--primary-dark);
+  color: white;
+}
+
+.btn-outline-danger {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.alert-success {
+  background-color: rgba(212, 165, 165, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-dark);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
