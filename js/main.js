@@ -362,29 +362,51 @@ function openImageModal(src, alt) {
 function initHeroSlideshow() {
   const slides = document.querySelectorAll('.hero-slide');
 
-  console.log('投影片輪播初始化 - 找到投影片數量:', slides.length);
+  console.log('========== 投影片輪播初始化 ==========');
+  console.log('找到投影片數量:', slides.length);
 
   if (!slides || slides.length === 0) {
     console.error('錯誤：找不到投影片元素');
     return;
   }
 
-  let currentSlide = 0;
-  console.log('投影片輪播已啟動，每 5 秒切換一次');
+  // 檢查第一張投影片是否有 active class
+  let hasActive = false;
+  slides.forEach((slide, index) => {
+    if (slide.classList.contains('active')) {
+      console.log('第', index + 1, '張投影片有 active class');
+      hasActive = true;
+    }
+    // 輸出背景圖片 URL (如果有的話)
+    const bgImage = slide.style.backgroundImage;
+    console.log(`投影片 ${index + 1} 背景:`, bgImage ? bgImage.substring(0, 80) + '...' : '無');
+  });
 
-  // 每 5 秒切換到下一張照片
-  setInterval(function() {
+  if (!hasActive) {
+    console.warn('警告：沒有投影片有 active class，設定第一張為 active');
+    slides[0].classList.add('active');
+  }
+
+  let currentSlide = 0;
+  console.log('投影片輪播已啟動，每 4 秒切換一次');
+  console.log('=====================================');
+
+  // 每 4 秒切換到下一張照片
+  const interval = setInterval(function() {
     // 移除當前幻燈片的 active 類別
     slides[currentSlide].classList.remove('active');
+    console.log('移除投影片', currentSlide + 1, '的 active');
 
     // 移動到下一張幻燈片
     currentSlide = (currentSlide + 1) % slides.length;
 
     // 添加 active 類別到新的幻燈片
     slides[currentSlide].classList.add('active');
-
     console.log('切換至投影片:', currentSlide + 1, '/', slides.length);
-  }, 5000); // 5000 毫秒 = 5 秒
+  }, 4000); // 4000 毫秒 = 4 秒
+
+  // 返回 interval ID 以便需要時可以清除
+  return interval;
 }
 
 // ========================================
