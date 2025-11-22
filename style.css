@@ -170,38 +170,6 @@ html {
   display: inline-block;
 }
 
-/* 愛神之箭特效 */
-.cupid-arrow {
-  position: absolute;
-  font-size: 3rem;
-  top: -20px;
-  right: -40px;
-  transform: rotate(45deg);
-  animation: arrowStrike 2s ease-out forwards;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-/* 箭飛入並擊中的動畫 */
-@keyframes arrowStrike {
-  0% {
-    transform: translateX(300px) translateY(-200px) rotate(45deg) scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  70% {
-    transform: translateX(0) translateY(0) rotate(45deg) scale(1.3);
-  }
-  85% {
-    transform: translateX(0) translateY(0) rotate(40deg) scale(0.9);
-  }
-  100% {
-    transform: translateX(0) translateY(0) rotate(45deg) scale(1);
-    opacity: 1;
-  }
-}
-
 /* 愛心飄散容器 */
 .love-hearts {
   position: absolute;
@@ -768,13 +736,6 @@ html {
     font-size: 2.5rem;
   }
 
-  /* 調整愛神之箭大小 */
-  .cupid-arrow {
-    font-size: 2rem;
-    top: -15px;
-    right: -25px;
-  }
-
   /* 調整愛心大小 */
   .heart {
     font-size: 1.5rem;
@@ -837,13 +798,6 @@ html {
 @media (max-width: 576px) {
   .hero-content h1 {
     font-size: 2rem;
-  }
-
-  /* 小手機調整愛神之箭 */
-  .cupid-arrow {
-    font-size: 1.5rem;
-    top: -10px;
-    right: -20px;
   }
 
   /* 小手機調整愛心 */
