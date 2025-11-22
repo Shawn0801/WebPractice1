@@ -60,8 +60,19 @@ html {
   position: relative;
 }
 
+.navbar-nav .nav-link i {
+  margin-right: 0.4rem;
+  font-size: 1.1rem;
+  vertical-align: middle;
+  transition: var(--transition);
+}
+
 .navbar-nav .nav-link:hover {
   color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link:hover i {
+  transform: scale(1.2);
 }
 
 .navbar-nav .nav-link::after {
