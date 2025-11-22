@@ -397,14 +397,12 @@ html {
   content: '🌷\A🌷\A🌷';
   white-space: pre;
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 15%;
   line-height: 5.5rem;
-  transform: rotate(-25deg);
   font-size: 5rem;
-  opacity: 0.2;
   filter: blur(0.3px);
-  animation: tulipGrowLeft 2s ease-out;
+  animation: tulipGrowLeft 2.5s ease-out forwards;
   pointer-events: none;
   z-index: 0;
 }
@@ -419,37 +417,41 @@ html {
   content: '🌷\A🌷\A🌷';
   white-space: pre;
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 15%;
   line-height: 5.5rem;
-  transform: rotate(25deg) scaleX(-1);
   font-size: 5rem;
-  opacity: 0.2;
   filter: blur(0.3px);
-  animation: tulipGrowRight 2s ease-out;
+  animation: tulipGrowRight 2.5s ease-out forwards;
   z-index: 0;
   pointer-events: none;
 }
 
-/* 鬱金香生長動畫 - 從左側 */
+/* 鬱金香生長動畫 - 從左側畫面外往內生長 */
 @keyframes tulipGrowLeft {
-  from {
-    transform: translateX(-80px) rotate(-25deg) scale(0.3);
+  0% {
+    transform: translateX(-150px) rotate(-30deg) scale(0.5);
     opacity: 0;
   }
-  to {
+  60% {
+    opacity: 0.25;
+  }
+  100% {
     transform: translateX(0) rotate(-25deg) scale(1);
     opacity: 0.2;
   }
 }
 
-/* 鬱金香生長動畫 - 從右側 */
+/* 鬱金香生長動畫 - 從右側畫面外往內生長 */
 @keyframes tulipGrowRight {
-  from {
-    transform: translateX(80px) rotate(25deg) scaleX(-1) scale(0.3);
+  0% {
+    transform: translateX(150px) rotate(30deg) scaleX(-1) scale(0.5);
     opacity: 0;
   }
-  to {
+  60% {
+    opacity: 0.25;
+  }
+  100% {
     transform: translateX(0) rotate(25deg) scaleX(-1) scale(1);
     opacity: 0.2;
   }
