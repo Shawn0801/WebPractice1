@@ -106,15 +106,24 @@ html {
 .hero-section {
   position: relative;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  object-fit: cover;
 }
 
 .hero-overlay {
@@ -123,7 +132,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.3) 0%, rgba(232, 180, 184, 0.25) 100%);
+  background: linear-gradient(135deg, rgba(212, 165, 165, 0.4) 0%, rgba(232, 180, 184, 0.35) 50%, rgba(139, 79, 86, 0.3) 100%);
   z-index: 1;
 }
 
@@ -279,10 +288,36 @@ html {
   transform: translateY(-3px);
 }
 
-.love-story {
-  border-left: 4px solid var(--accent-gold);
+/* 愛情金句樣式 */
+.love-quote {
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 4rem;
+  color: var(--accent-gold);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.quote-text {
+  font-size: 2.5rem;
+  line-height: 1.6;
+  color: var(--primary-darker);
+  font-weight: 600;
+  margin: 2rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.02em;
+}
+
+.quote-author {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  background: linear-gradient(to right, rgba(212, 165, 165, 0.05), transparent);
+  margin-top: 2rem;
+  font-weight: 400;
 }
 
 /* ========================================
@@ -624,6 +659,18 @@ html {
   .gallery-item img {
     height: 250px;
   }
+
+  .quote-text {
+    font-size: 1.8rem;
+  }
+
+  .quote-icon {
+    font-size: 3rem;
+  }
+
+  .quote-author {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -649,6 +696,22 @@ html {
 
   .rsvp-form {
     padding: 2rem 1.5rem !important;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+  }
+
+  .quote-icon {
+    font-size: 2.5rem;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+
+  .love-quote {
+    padding: 2rem 1rem;
   }
 }
 
