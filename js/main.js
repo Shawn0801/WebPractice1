@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavbarScroll();
   initRSVPForm();
   initGallery();
+  initHeroSlideshow();
 });
 
 // ========================================
@@ -353,6 +354,29 @@ function openImageModal(src, alt) {
       document.removeEventListener('keydown', closeOnEsc);
     }
   });
+}
+
+// ========================================
+// 首頁背景投影片輪播
+// ========================================
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll('.hero-slide');
+
+  if (!slides || slides.length === 0) return;
+
+  let currentSlide = 0;
+
+  // 每 5 秒切換到下一張照片
+  setInterval(function() {
+    // 移除當前幻燈片的 active 類別
+    slides[currentSlide].classList.remove('active');
+
+    // 移動到下一張幻燈片
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    // 添加 active 類別到新的幻燈片
+    slides[currentSlide].classList.add('active');
+  }, 5000); // 5000 毫秒 = 5 秒
 }
 
 // ========================================
