@@ -362,9 +362,15 @@ function openImageModal(src, alt) {
 function initHeroSlideshow() {
   const slides = document.querySelectorAll('.hero-slide');
 
-  if (!slides || slides.length === 0) return;
+  console.log('投影片輪播初始化 - 找到投影片數量:', slides.length);
+
+  if (!slides || slides.length === 0) {
+    console.error('錯誤：找不到投影片元素');
+    return;
+  }
 
   let currentSlide = 0;
+  console.log('投影片輪播已啟動，每 5 秒切換一次');
 
   // 每 5 秒切換到下一張照片
   setInterval(function() {
@@ -376,6 +382,8 @@ function initHeroSlideshow() {
 
     // 添加 active 類別到新的幻燈片
     slides[currentSlide].classList.add('active');
+
+    console.log('切換至投影片:', currentSlide + 1, '/', slides.length);
   }, 5000); // 5000 毫秒 = 5 秒
 }
 
