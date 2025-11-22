@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavbarScroll();
   initRSVPForm();
   initGallery();
-  initFootprints();
 });
 
 // ========================================
@@ -353,43 +352,6 @@ function openImageModal(src, alt) {
       document.body.removeChild(modal);
       document.removeEventListener('keydown', closeOnEsc);
     }
-  });
-}
-
-// ========================================
-// 腳印滾動浮現效果
-// ========================================
-function initFootprints() {
-  const footprints = document.querySelectorAll('[data-footprint]');
-
-  if (footprints.length === 0) return;
-
-  // 檢查腳印是否在視窗中
-  function checkFootprints() {
-    footprints.forEach((footprint, index) => {
-      const rect = footprint.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-      // 當腳印進入視窗底部 80% 時開始顯示
-      if (rect.top <= windowHeight * 0.8) {
-        // 添加延遲效果，讓腳印依序浮現
-        setTimeout(() => {
-          footprint.classList.add('show');
-        }, index * 150); // 每個腳印間隔 150ms
-      }
-    });
-  }
-
-  // 初始檢查
-  checkFootprints();
-
-  // 滾動時檢查（使用節流優化性能）
-  let scrollTimeout;
-  window.addEventListener('scroll', function() {
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
-    }
-    scrollTimeout = setTimeout(checkFootprints, 50);
   });
 }
 
