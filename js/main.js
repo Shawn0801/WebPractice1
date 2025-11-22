@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // 倒數計時器
 // ========================================
 function initCountdown() {
-  // 設定婚禮日期 (2025年12月25日 12:00:00)
-  const weddingDate = new Date('2025-12-25T12:00:00').getTime();
+  // 設定婚禮日期 (2026年5月12日 11:00:00)
+  const weddingDate = new Date('2026-05-12T11:00:00').getTime();
 
   // 每秒更新一次
   const countdownInterval = setInterval(function() {

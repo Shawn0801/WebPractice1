@@ -40,8 +40,9 @@ html {
 
 /* 優雅字體 */
 .elegant-font {
-  font-family: 'Great Vibes', 'Noto Serif TC', cursive;
-  font-weight: 400;
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 /* ========================================
@@ -105,7 +106,7 @@ html {
 .hero-section {
   position: relative;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/Scene3.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
