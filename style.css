@@ -1,17 +1,756 @@
-.mt-60 {
-  margin-top: 60px;
-  /* 上方距 */
+/* ==================== 基礎設定 ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-  padding: 50px 0px;
-  background-image: url(/Users/shawnlai/Desktop/webPractice_2/images/Banner.jpg);
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+:root {
+  --primary-color: #d4a574;
+  --secondary-color: #8b7355;
+  --accent-color: #f5e6d3;
+  --dark-color: #2c2416;
+  --light-color: #fff;
+  --text-color: #4a3f35;
+  --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.page-link {
-  color: black;
+body {
+  font-family: 'Noto Serif TC', serif;
+  color: var(--text-color);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== 首屏封面 ==================== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: backgroundMove 20s ease-in-out infinite;
+}
+
+@keyframes backgroundMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 2;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.couple-names {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  animation: fadeInUp 1.5s ease 0.3s both;
+}
+
+.wedding-date {
+  font-size: 1.8rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1.5s ease 0.6s both;
+}
+
+.scroll-indicator {
+  margin-top: 4rem;
+  animation: fadeInUp 1.5s ease 0.9s both;
+}
+
+.scroll-indicator span {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+  margin: 0 auto;
+  animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(10px); }
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.float-element {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-element:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.float-element:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.float-element:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+/* ==================== 喜帖打開區 ==================== */
+.invitation-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f5f5f5, #e8d5c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation-container {
+  perspective: 2000px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.invitation-card {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  transform-style: preserve-3d;
+  transition: var(--transition);
+}
+
+.invitation-card.opened .card-left {
+  transform: rotateY(-165deg);
+}
+
+.invitation-card.opened .card-right {
+  transform: rotateY(165deg);
+}
+
+.invitation-card.opened .card-content {
+  opacity: 1;
+  transform: translateZ(50px) scale(1);
+}
+
+.card-left,
+.card-right {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.card-left {
+  left: 0;
+  transform-origin: right center;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-right {
+  right: 0;
+  transform-origin: left center;
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.03) 10px,
+      rgba(255,255,255,0.03) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.03) 10px,
+      rgba(255,255,255,0.03) 20px
+    );
+  border-radius: 10px;
+}
+
+.card-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0) scale(0.8);
+  width: 90%;
+  max-width: 600px;
+  padding: 3rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.8s;
+  text-align: center;
+  z-index: 10;
+}
+
+.invitation-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+}
+
+.dear-guest {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.letter-content {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-top: 2rem;
+  text-align: right;
+}
+
+/* ==================== 我們的故事 - 視差區 ==================== */
+.story-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 2rem;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
+  z-index: -1;
+}
+
+.parallax-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.story-content {
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  text-align: center;
+  color: var(--dark-color);
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition);
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: var(--transition);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+  transform: translateX(50px);
+}
+
+.timeline-item:nth-child(even).visible {
+  transform: translateX(0);
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border: 4px solid white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.2);
+  z-index: 2;
+}
+
+.timeline-content {
+  width: 45%;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.timeline-content h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+/* ==================== 婚禮資訊 - 視差區 ==================== */
+.info-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.info-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: -1;
+}
+
+.info-content {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.info-card {
+  background: rgba(255,255,255,0.95);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition);
+}
+
+.info-card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.info-card:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.info-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+/* ==================== 表單區 ==================== */
+.form-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f5f5f5, #fff);
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 700px;
+  width: 100%;
+  background: white;
+  padding: 4rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.form-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.rsvp-form {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.1);
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+  border-color: var(--primary-color);
+  background: rgba(212, 165, 116, 0.05);
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+  margin-right: 1rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-top: 2rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.success-message.show {
+  display: block;
+  animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes successPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background: white;
+  color: #11998e;
+  border-radius: 50%;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+  font-weight: bold;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==================== 頁腳 ==================== */
+.footer {
+  background: var(--dark-color);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  color: var(--light-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.footer-date {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  letter-spacing: 0.3rem;
+}
+
+/* ==================== 響應式設計 ==================== */
+@media (max-width: 768px) {
+  .couple-names {
+    font-size: 3rem;
+  }
+
+  .wedding-date {
+    font-size: 1.2rem;
+  }
+
+  .invitation-card {
+    height: 500px;
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+
+  .invitation-title {
+    font-size: 1.8rem;
+  }
+
+  .letter-content {
+    font-size: 0.95rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+  }
+
+  .timeline-dot {
+    left: 20px;
+  }
+
+  .timeline-content {
+    width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-container {
+    padding: 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .couple-names {
+    font-size: 2.5rem;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
 }
